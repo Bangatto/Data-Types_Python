@@ -55,9 +55,31 @@ q.append("BlackRock")
 q.popleft() #Google
 q.popleft() #Salesforce
 
-
 #HEAP
 #Available in Heapq module
 #Called Priority Queue-> The smallest element is always at the root ---> heap[0]
 #heapify(iterable)---convert the iterable into a heap--->heap order(min heap)
+#heapify----transform the list into a heap, in-place, in linear time
 #heappush(iterable, element)--> insert element into the heap and order is always maintain
+#heappop(iterable)---> removes and return the smallest element from the heap
+import heapq
+arr = [5,7,8,4,3]
+print("Array is here",arr)
+heapq.heapify(arr)
+heapq.heappush(arr, 10)
+heapq.heappush(arr, 1)
+heapq.heappush(arr, 9)
+
+heapq.heappop(arr) #1
+heapq.heappop(arr) #3
+heapq.heappop(arr) #4
+#array has been transformed in-place and therefore it returns a heap
+print(arr)
+print(arr[0])
+
+#nlargest(k, iterable)--returns the kth largest element from the iterable--returns a list with the number of smallest or largest elements
+print(heapq.nlargest(1, arr))
+print(heapq.nlargest(3, arr))
+#nsmallest(k,iterable)--returns the kth smallest element from the iterable 
+print(heapq.nsmallest(1, arr))
+print(heapq.nsmallest(3, arr))
