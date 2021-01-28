@@ -65,7 +65,7 @@ q.popleft() #Salesforce
 import heapq
 arr = [5,7,8,4,3]
 print("Array is here",arr)
-heapq.heapify(arr)
+heapq.heapify(arr) #transform the list into a heap-inline
 heapq.heappush(arr, 10)
 heapq.heappush(arr, 1)
 heapq.heappush(arr, 9)
@@ -77,9 +77,24 @@ heapq.heappop(arr) #4
 print(arr)
 print(arr[0])
 
-#nlargest(k, iterable)--returns the kth largest element from the iterable--returns a list with the number of smallest or largest elements
+#nlargest(k, iterable)--returns a list with the kth largest element from the from the dataset
 print(heapq.nlargest(1, arr))
 print(heapq.nlargest(3, arr))
-#nsmallest(k,iterable)--returns the kth smallest element from the iterable 
+#nsmallest(k,iterable)--returns a list with the kth smallest element from the iterable 
 print(heapq.nsmallest(1, arr))
 print(heapq.nsmallest(3, arr))
+
+#The above two perform best for smaller values of N. For larger values, use sorted() instead.
+
+#Combined Heappush and Heappop (heappushpop(iterable, elemeent)) --> More Efficient than Separate heappush followed by a heappop()
+print(heapq.heappushpop(arr, 12))
+
+#TIME COMPLEXITIES
+#Insertion-heappush (log N)-compare with the parent element only
+#Delete -heappop (log N)-after removal, the heap invariant has to be maintained
+#Heapify --O(N) rearrange all the nodes in the heap to obey heap invariant property
+
+#MAX-HEAP
+heapq._heapify_max(arr) #transform the iterable inline into a Max-Heap, largest element at index 0
+heapq._heappop_max(arr) # removes and return the element at index 0 --->Largest element
+print(arr)
